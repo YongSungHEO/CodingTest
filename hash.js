@@ -39,3 +39,42 @@ function solution(clothes) {
 
     return answer - 1;
 }
+
+
+// 베스트앨범
+const genres = ['classic', 'pop', 'classic', 'classic', 'pop'];
+const plays = [500, 600, 150, 800, 2500];
+function solution(genres, plays) {
+    var answer = [];
+    var map = new Map();
+    var map2 = new Map();
+
+    for (let i=0; i<genres.length; i++) {
+        if (map.has(genres[i])) {
+            map.set(genres[i], map.get(genres[i]) + plays[i]);
+        } else {
+            map.set(genres[i], plays[i]);
+        }
+        map2.set(i, plays[i]);
+    }
+
+    var sortedMap = new Map([...map].sort((a, b) => {
+        return b[1] - a[1];
+    }));
+
+    var sortedMap2 = new Map([...map2].sort((a, b) => {
+        return b[1] - a[1];
+    }));
+
+    for (let key of sortedMap.keys()) {
+        let count = 0;
+        for (let key2 of sortedMap2.keys()) {
+            if (genres[key2] === key && count < 2) {
+                count++;
+                answer.push(key2);
+            }
+        }       
+    }
+
+    return answer;
+}
