@@ -97,3 +97,32 @@ function solution(bridge_length, weight, truck_weights) {
 console.log(solution(2, 10, [7, 4, 5, 6]));
 console.log(solution(100, 100, [10]));
 console.log(solution(100, 100, [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]));
+
+
+// 기능개발
+function solution(progresses, speeds) {
+    var answer = [];
+
+    while (progresses.length) {
+        progresses = progresses.map((item, index) => {
+            item += speeds[index];
+            return item;
+        });
+        if (progresses[0] >= 100) {
+            let publishCount = 1;
+            for (let i=1; i<progresses.length; i++) {
+                if (progresses[i] >= 100) {
+                    publishCount++;
+                } else {
+                    break;
+                }
+            }
+            progresses.splice(0, publishCount);
+            speeds.splice(0, publishCount);
+            answer.push(publishCount);
+        }
+    }
+
+    return answer;
+}
+console.log(solution([93, 30, 55], [1, 30, 5]));
