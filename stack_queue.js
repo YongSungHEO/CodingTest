@@ -22,3 +22,29 @@ function solution(priorities, location) {
 
 console.log(solution([2, 1, 3, 2], 2));
 console.log(solution([1, 1, 9, 1, 1, 1], 0));
+
+
+// 탑(Level2)
+function solution(heights) {
+    var answer = [];
+
+    answer.push(0);
+    for (let i=1; i<heights.length; i++) {
+        for (let j=i-1; j>=0; j--) {
+            if (heights[i] < heights[j]) {
+                answer.push(j + 1);
+                break;
+            }
+            if (j === 0) {
+                answer.push(0);
+                break;
+            }
+        }
+    }
+
+    return answer;
+}
+
+console.log(solution([6,9,5,7,4]));
+console.log(solution([3,9,9,3,5,7,2]));
+console.log(solution([1,5,3,6,7,6,5]));
