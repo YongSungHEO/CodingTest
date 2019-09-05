@@ -48,3 +48,27 @@ function solution(heights) {
 console.log(solution([6,9,5,7,4]));
 console.log(solution([3,9,9,3,5,7,2]));
 console.log(solution([1,5,3,6,7,6,5]));
+
+
+// 쇠막대기
+function solution(arrangement) {
+    var answer = 0;
+    let stack = [];
+
+    for (let i=0; i<arrangement.length; i++) {
+        if (arrangement[i] === '(') {
+            stack.push('(');
+        } else {
+            stack.pop();
+            if (arrangement[i - 1] === '(') {
+                answer += stack.length;
+            } else {
+                answer++;
+            }
+        }
+    }
+    
+    return answer;
+}
+
+console.log(solution('()(((()())(())()))(())'));
