@@ -1,4 +1,4 @@
-# 주식가격
+# 주식가격(Level2)
 def solution(prices):
     answer = [0] * len(prices)
 

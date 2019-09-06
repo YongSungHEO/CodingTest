@@ -48,7 +48,7 @@ console.log(solution([3,9,9,3,5,7,2]));
 console.log(solution([1,5,3,6,7,6,5]));
 
 
-// 쇠막대기
+// 쇠막대기(Level2)
 function solution(arrangement) {
     var answer = 0;
     let stack = [];
@@ -99,7 +99,7 @@ console.log(solution(100, 100, [10]));
 console.log(solution(100, 100, [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]));
 
 
-// 기능개발
+// 기능개발(Level2)
 function solution(progresses, speeds) {
     var answer = [];
 

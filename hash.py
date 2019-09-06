@@ -1,4 +1,4 @@
-# 전화번호 목록
+# 전화번호 목록(Level2)
 def solution(phone_book):
     answer = True
     

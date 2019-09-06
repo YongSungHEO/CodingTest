@@ -1,4 +1,4 @@
-// 완주하지 못한 선수
+// 완주하지 못한 선수(Level1)
 function solution(participant, completion) {
     let key = new Map();
     
@@ -20,7 +20,7 @@ function solution(participant, completion) {
 }
 
 
-// 위장
+// 위장(Level2)
 function solution(clothes) {
     var answer = 1;
     let map = new Map();
@@ -41,7 +41,7 @@ function solution(clothes) {
 }
 
 
-// 베스트앨범
+// 베스트앨범(Level3)
 const genres = ['classic', 'pop', 'classic', 'classic', 'pop'];
 const plays = [500, 600, 150, 800, 2500];
 function solution(genres, plays) {
