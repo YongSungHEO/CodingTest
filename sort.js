@@ -28,3 +28,22 @@ function solution(numbers) {
 }
 console.log(solution([6, 10, 2]));
 console.log(solution([3, 30, 34, 5, 9]));
+
+
+// H-Index
+function solution(citations) {
+    var answer = 0;
+
+    citations.sort((a, b) =>  a - b);
+    for (let i=0; i<citations.length; i++) {
+        if (citations.length - i <= citations[i]) {
+            answer = citations.length - i;
+            break;
+        }
+    }
+
+    return answer;
+}
+console.log(solution([3, 0, 6, 1, 5]));
+console.log(solution([1, 2, 3, 3, 3, 3, 4, 4, 5, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10]));
+console.log(solution([22, 42]));
