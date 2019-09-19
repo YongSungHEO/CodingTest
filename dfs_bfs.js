@@ -42,3 +42,49 @@ function solution(n, computers) {
 }
 console.log(solution(3, [[1, 1, 0], [1, 1, 0], [0, 0, 1]]));
 console.log(solution(3, [[1, 1, 0], [1, 1, 1], [0, 1, 1]]));
+
+
+// 단어 변환
+function solution(begin, target, words) {
+    var answer = 0;
+    let visited = Array(words.length).fill(0);
+
+    if (!words.some(item => item === target)) {
+        return answer;
+    }
+
+    for (let i=0; i<words.length; i++) {
+        if (!visited[i]) {
+            if (i === 0) {
+                answer++;
+                recursive(i, begin);
+            } else {
+                recursive(i, words[i]);
+            }
+            function recursive(index, begin) {
+                visited[index] = 1;
+                if (begin === target) {
+                    return answer;
+                }
+                if (isChangable(begin, words[index])) {
+                    answer++;
+                    recursive(index + 1, words[index]);
+                }
+            }
+        }
+    }
+
+    return answer;
+}
+function isChangable(begin, word) {
+    let count = 0;
+    for (let i=0; i<word.length; i++) {
+        if (begin[i] !== word[i]) {
+            count++;
+        }
+    }
+    return count === 1 ? true : false;
+}
+console.log(solution('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log', 'cog']));
+console.log(solution('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log']));
+console.log(solution('hit', 'hhh', ['hhh', 'hht']));
