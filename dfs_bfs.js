@@ -88,3 +88,38 @@ function isChangable(begin, word) {
 console.log(solution('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log', 'cog']));
 console.log(solution('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log']));
 console.log(solution('hit', 'hhh', ['hhh', 'hht']));
+
+
+// 여행 경로
+function solution(tickets) {
+    var answer = [];
+    let visited = Array(tickets.length).fill(0);
+
+    tickets.sort((a, b) => {
+        if (a[1] > b[1]) return 1
+        else return 0;
+    });
+
+    for (let i=0; i<tickets.length; i++) {
+        if (tickets[i][0] === 'ICN') {
+            visited[i] = 1;
+            answer.push(tickets[i][0]);
+            answer.push(tickets[i][1]);
+            break;
+        }
+    }
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    while (visited.reduce(reducer) !== tickets.length) {
+        for (let i=0; i<tickets.length; i++) {
+            if (!visited[i]) {
+                if (tickets[i][0] === answer[answer.length - 1]) {
+                    answer.push(tickets[i][1]);
+                    visited[i] = 1;
+                }
+            }
+        }
+    }
+    return answer;
+}
+console.log(solution([['ICN', 'JFK'], ['HND', 'IAD'], ['JFK', 'HND']]));
+console.log(solution([['ICN', 'SFO'], ['ICN', 'ATL'], ['SFO', 'ATL'], ['ATL', 'ICN'], ['ATL','SFO']]));
