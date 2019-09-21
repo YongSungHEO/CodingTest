@@ -53,3 +53,52 @@ function solution(a, b) {
     }
     return answer;
 }
+
+
+// 나누어 떨어지는 숫자 배열
+function solution(arr, divisor) {
+    var answer = [];
+
+    for (let i=0; i<arr.length; i++) {
+        if (arr[i] % divisor === 0) {
+            answer.push(arr[i]);
+        }
+    }
+    if (!answer.length) {
+        return [-1];
+    }
+    answer.sort((a, b) => { return a - b });
+    return answer;
+}
+
+
+// 문자열 내 마음대로 정렬하기
+function solution(strings, n) {
+    var answer = [];
+    let forSort = [];
+    let map = new Map();
+    
+    for (let i=0; i<strings.length; i++) {
+        forSort.push(strings[i][n]);
+        map.set(i, strings[i][n]);
+    }
+    let sortedMap = new Map([...map].sort((a, b) => { 
+                        if (a[1] > b[1]) {
+                            return 1;
+                        } else if (a[1] < b[1]) {
+                            return -1;
+                        } else {
+                            if (strings[a[0]] > strings[b[0]]) {
+                                return 1;
+                            } else if (strings[a[0]] < strings[b[0]]) {
+                                return -1;
+                            }
+                            return 0;
+                        }
+                    }));
+    for (let key of sortedMap.keys()) {
+        answer.push(strings[key]);
+    }
+    
+    return answer;
+}
