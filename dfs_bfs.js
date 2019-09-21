@@ -48,40 +48,48 @@ console.log(solution(3, [[1, 1, 0], [1, 1, 1], [0, 1, 1]]));
 function solution(begin, target, words) {
     var answer = 0;
     let visited = Array(words.length).fill(0);
+    let changedCount = 0;
+    let current = begin;
 
     if (!words.some(item => item === target)) {
         return answer;
     }
 
-    for (let i=0; i<words.length; i++) {
-        if (!visited[i]) {
-            if (i === 0) {
-                answer++;
-                recursive(i, begin);
-            } else {
-                recursive(i, words[i]);
-            }
-            function recursive(index, begin) {
-                visited[index] = 1;
-                if (begin === target) {
-                    return answer;
-                }
-                if (isChangable(begin, words[index])) {
+    while (changedCount !== words.length && current !== target) {
+        let changed = false;
+        let count = 0;
+        for (let i=0; i<words.length; i++) {
+            count++;
+            if (!visited[i]) {
+                if (isChangable(current, words[i], target)) {
+                    changed = true;
+                    visited[i] = 1;
+                    changedCount++;
                     answer++;
-                    recursive(index + 1, words[index]);
+                    current = words[i];
                 }
             }
+        }
+        if (count === words.length && !changed) {
+            return 0;
         }
     }
 
     return answer;
 }
-function isChangable(begin, word) {
+function isChangable(begin, word, target) {
     let count = 0;
+    let count2 = 0;
     for (let i=0; i<word.length; i++) {
         if (begin[i] !== word[i]) {
             count++;
         }
+        if (begin[i] === target[i]) {
+            count2++;
+        }
+    }
+    if (count2 === 2 && word !== target) {
+        return false;
     }
     return count === 1 ? true : false;
 }
