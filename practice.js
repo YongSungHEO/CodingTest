@@ -1,4 +1,4 @@
-// 가운데 글자 가져오기
+// 가운데 글자 가져오기(Level1)
 function solution(s) {
     var answer = '';
 
@@ -14,7 +14,7 @@ console.log(solution('abcde'));
 console.log(solution('qwer'));
 
 
-// 2016년
+// 2016년(Level1)
 function solution(a, b) {
     var answer = '';
     let array = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
@@ -24,7 +24,7 @@ function solution(a, b) {
 }
 
 
-// 같은 숫자는 싫어
+// 같은 숫자는 싫어(Level1)
 function solution(arr) {
     var answer = [];
     answer.push(arr[0]);
@@ -37,7 +37,7 @@ function solution(arr) {
 }
 
 
-// 두 정수 사이의 합
+// 두 정수 사이의 합(Level1)
 function solution(a, b) {
     var answer = 0;
 
@@ -55,7 +55,7 @@ function solution(a, b) {
 }
 
 
-// 나누어 떨어지는 숫자 배열
+// 나누어 떨어지는 숫자 배열(Level1)
 function solution(arr, divisor) {
     var answer = [];
 
@@ -72,7 +72,7 @@ function solution(arr, divisor) {
 }
 
 
-// 문자열 내 마음대로 정렬하기
+// 문자열 내 마음대로 정렬하기(Level1)
 function solution(strings, n) {
     var answer = [];
     let forSort = [];
@@ -100,5 +100,27 @@ function solution(strings, n) {
         answer.push(strings[key]);
     }
     
+    return answer;
+}
+
+
+// 문자열 내 p와 y의 개수(Level1)
+function solution(s){
+    var answer = true;
+    let pCount = 0;
+    let yCount = 0;
+
+    for (let i=0; i<s.length; i++) {
+        if (s[i].toLowerCase() === 'p') {
+            pCount++;
+        }
+        if (s[i].toLowerCase() === 'y') {
+            yCount++;
+        }
+    }
+    if ((pCount || yCount) && pCount !== yCount) {
+        answer = false;
+    }
+
     return answer;
 }
