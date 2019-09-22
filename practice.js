@@ -124,3 +124,18 @@ function solution(s){
 
     return answer;
 }
+
+
+// 문자열 다루기 기본
+function solution(s) {
+    var answer = true;
+    let regular = /^[0-9]*$/;
+
+    if (s.length !== 4 && s.length !== 6) {
+        return false;
+    }
+    if (!regular.test(s)) {
+        return false;
+    }
+    return answer;
+}
