@@ -126,6 +126,43 @@ function solution(s){
 }
 
 
+// 문자열 내림차순으로 배치하기
+function solution(s) {
+    var answer = '';
+    let upperReg = /^[A-Z]*$/;
+    let upper = [];
+    let lower = [];
+
+    for (let i=0; i<s.length; i++) {
+        if (upperReg.test(s[i])) {
+            upper.push(s[i]);
+        } else {
+            lower.push(s[i]);
+        }
+    }
+    upper.sort((a, b) => {
+        if (a < b) {
+            return 1;
+        } else if (a > b) {
+            return -1;
+        } else {
+            return 0;
+        }
+    });
+    lower.sort((a, b) => {
+        if (a < b) {
+            return 1;
+        } else if (a > b) {
+            return -1;
+        } else {
+            return 0;
+        }
+    });
+    answer = lower.join('') + upper.join('');
+    return answer;
+}
+
+
 // 문자열 다루기 기본
 function solution(s) {
     var answer = true;
