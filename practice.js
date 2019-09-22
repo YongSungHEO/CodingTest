@@ -176,3 +176,12 @@ function solution(s) {
     }
     return answer;
 }
+
+
+// 서울에서 김서방 찾기
+function solution(seoul) {
+    var answer = '';
+    let index = seoul.findIndex(item => { return item === 'Kim' });
+    answer = `김서방은 ${index}에 있다`;
+    return answer;
+}
