@@ -46,52 +46,31 @@ console.log(solution(3, [[1, 1, 0], [1, 1, 1], [0, 1, 1]]));
 
 // 단어 변환
 function solution(begin, target, words) {
-    var answer = 0;
-    let visited = Array(words.length).fill(0);
-    let changedCount = 0;
-    let current = begin;
+    var answer = Infinity;
+    const visited= [];
 
-    if (!words.some(item => item === target)) {
-        return answer;
-    }
+    recursive(begin, 0);
+    function recursive(current, count) {
+        if (current === target) {
+            answer = Math.min(count, answer);
+            return;
+        }
 
-    while (changedCount !== words.length && current !== target) {
-        let changed = false;
-        let count = 0;
-        for (let i=0; i<words.length; i++) {
-            count++;
-            if (!visited[i]) {
-                if (isChangable(current, words[i], target)) {
-                    changed = true;
-                    visited[i] = 1;
-                    changedCount++;
-                    answer++;
-                    current = words[i];
-                }
+        words.map((word, index) => {
+            let j = word.length - 1;
+            let diff = 0;
+            while (j !== -1) {
+                if (current[j] !== word[j]) diff++;
+                j--;
             }
-        }
-        if (count === words.length && !changed) {
-            return 0;
-        }
+            if (diff === 1 && !visited[word]) {
+                visited[word] = 1;
+                recursive(word, count + 1);
+                visited[word] = 0;
+            }
+        });
     }
-
-    return answer;
-}
-function isChangable(begin, word, target) {
-    let count = 0;
-    let count2 = 0;
-    for (let i=0; i<word.length; i++) {
-        if (begin[i] !== word[i]) {
-            count++;
-        }
-        if (begin[i] === target[i]) {
-            count2++;
-        }
-    }
-    if (count2 === 2 && word !== target) {
-        return false;
-    }
-    return count === 1 ? true : false;
+    return answer === Infinity ? 0 : answer;
 }
 console.log(solution('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log', 'cog']));
 console.log(solution('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log']));
