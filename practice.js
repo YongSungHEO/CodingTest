@@ -185,3 +185,32 @@ function solution(seoul) {
     answer = `김서방은 ${index}에 있다`;
     return answer;
 }
+
+
+// 소수 찾기
+function solution(n) {
+    var answer = 0;
+    let numbers = [];
+    let check = [2, 3, 5, 7];
+
+    for (let i=0; i<n; i++) {
+        numbers.push(i + 1);
+    }
+    let resultArr = findPrime(numbers, check);
+    function findPrime(numbers, check) {
+        for (let i=0; i<numbers.length; i++) {
+            if (numbers[i] % check[0] === 0 && numbers[i] !== check[0]) {
+                numbers.splice(i, 1);
+            }
+        }
+        check.splice(0, 1);
+        if (check.length === 0) {
+            numbers.splice(0, 1);
+        }
+        return check.length === 0 ? numbers : findPrime(numbers, check);
+    }
+    answer = resultArr.length;
+    return answer;
+}
+console.log(solution(10));
+console.log(solution(5));
