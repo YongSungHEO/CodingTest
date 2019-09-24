@@ -191,25 +191,22 @@ function solution(seoul) {
 function solution(n) {
     var answer = 0;
     let numbers = [];
-    let check = [2, 3, 5, 7];
 
-    for (let i=0; i<n; i++) {
-        numbers.push(i + 1);
+    for (let i=0; i<=n; i++) {
+        numbers.push(i);
     }
-    let resultArr = findPrime(numbers, check);
-    function findPrime(numbers, check) {
-        for (let i=0; i<numbers.length; i++) {
-            if (numbers[i] % check[0] === 0 && numbers[i] !== check[0]) {
-                numbers.splice(i, 1);
-            }
+    numbers[1] = 0;
+    for (let i=2; i<=n; i++) {
+        if (!numbers[i]) continue;
+        for (let j=2*i; j<=n; j+=i) {
+            numbers[j] = 0;
         }
-        check.splice(0, 1);
-        if (check.length === 0) {
-            numbers.splice(0, 1);
-        }
-        return check.length === 0 ? numbers : findPrime(numbers, check);
     }
-    answer = resultArr.length;
+    for (let i=0; i<=n; i++) {
+        if (numbers[i]) {
+            answer++;
+        }
+    }
     return answer;
 }
 console.log(solution(10));
