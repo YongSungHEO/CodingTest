@@ -294,3 +294,16 @@ function solution(s) {
 }
 console.log(solution('try hello world'));
 
+
+// 자릿수 더하기
+function solution(n) {
+    var answer = 0;
+    let str = n.toString();
+
+    for (let i=0; i<str.length; i++) {
+        answer += parseInt(str[i], 10);
+    }
+    return answer;
+}
+console.log(solution(123));
+console.log(solution(987));
