@@ -321,3 +321,11 @@ function solution(n) {
     return parseInt((n + '').split('').sort((a, b) => b > a).join(''));
 }
 console.log(solution(118372));
+
+
+// 정수 제곱근 판별
+function solution(n) {
+    return Number.isInteger(Math.sqrt(n)) ? Math.pow(Math.sqrt(n) + 1, 2) : -1;
+}
+console.log(solution(121));
+console.log(solution(3));
