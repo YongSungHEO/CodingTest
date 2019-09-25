@@ -314,3 +314,10 @@ function solution(n) {
     return (n + '').split('').reverse().map(item => parseInt(item, 10));
 }
 console.log(solution(12345));
+
+
+// 정수 내림차순으로 배치하기
+function solution(n) {
+    return parseInt((n + '').split('').sort((a, b) => b > a).join(''));
+}
+console.log(solution(118372));
