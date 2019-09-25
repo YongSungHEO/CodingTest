@@ -225,3 +225,13 @@ function solution(n) {
 }
 console.log(solution(3));
 console.log(solution(4));
+
+
+// 문자열을 정수로 바꾸기(Level1)
+function solution(s) {
+    var answer = 0;
+    answer = parseInt(s, 10);
+    return answer;
+}
+console.log(solution(1234));
+console.log(solution(-1234));
