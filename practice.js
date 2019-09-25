@@ -235,3 +235,27 @@ function solution(s) {
 }
 console.log(solution(1234));
 console.log(solution(-1234));
+
+
+// 시저 암호(Level1)
+function solution(s, n) {
+    var answer = '';
+    let lowerReg = /^[a-z]*$/;
+
+    for (let i=0; i<s.length; i++) {
+        if (s.charCodeAt(i) === 32) {
+            answer += ' ';
+            continue;
+        }
+        if (lowerReg.test(s[i]) && s.charCodeAt(i) + n > 122
+            || !lowerReg.test(s[i]) && s.charCodeAt(i) + n > 90) {
+            answer += String.fromCharCode((s.charCodeAt(i) + n) - 26);
+        } else {
+            answer += String.fromCharCode((s.charCodeAt(i) + n));
+        }
+    }
+    return answer;
+}
+console.log(solution('AB', 1));
+console.log(solution('z', 1));
+console.log(solution('a B z', 4));
