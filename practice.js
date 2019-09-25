@@ -307,3 +307,10 @@ function solution(n) {
 }
 console.log(solution(123));
 console.log(solution(987));
+
+
+// 자연수 뒤집어 배열로 만들기
+function solution(n) {
+    return (n + '').split('').reverse().map(item => parseInt(item, 10));
+}
+console.log(solution(12345));
