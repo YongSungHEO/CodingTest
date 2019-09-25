@@ -274,3 +274,23 @@ function solution(n) {
 }
 console.log(solution(12));
 console.log(solution(5));
+
+
+// 이상한 문자 만들기
+function solution(s) {
+    var answer = '';
+    let index = 0;
+
+    for (let i=0; i<s.length; i++) {
+        if (s[i] === ' ') {
+            answer += ' ';
+            index = 0;
+            continue;
+        }
+        answer += index % 2 === 0 ? s[i].toUpperCase() : s[i].toLowerCase();
+        index++;
+    }
+    return answer;
+}
+console.log(solution('try hello world'));
+
