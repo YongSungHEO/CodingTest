@@ -126,7 +126,7 @@ function solution(s){
 }
 
 
-// 문자열 내림차순으로 배치하기
+// 문자열 내림차순으로 배치하기(Level1)
 function solution(s) {
     var answer = '';
     let upperReg = /^[A-Z]*$/;
@@ -163,7 +163,7 @@ function solution(s) {
 }
 
 
-// 문자열 다루기 기본
+// 문자열 다루기 기본(Level1)
 function solution(s) {
     var answer = true;
     let regular = /^[0-9]*$/;
@@ -178,7 +178,7 @@ function solution(s) {
 }
 
 
-// 서울에서 김서방 찾기
+// 서울에서 김서방 찾기(Level1)
 function solution(seoul) {
     var answer = '';
     let index = seoul.findIndex(item => { return item === 'Kim' });
@@ -187,7 +187,7 @@ function solution(seoul) {
 }
 
 
-// 소수 찾기
+// 소수 찾기(Level1)
 function solution(n) {
     var answer = 0;
     let numbers = [];
@@ -211,3 +211,17 @@ function solution(n) {
 }
 console.log(solution(10));
 console.log(solution(5));
+
+
+// 수박수박수박수박수박수?(Level1)
+function solution(n) {
+    var answer = '';
+    let stringArr = ['수', '박'];
+
+    for (let i=0; i<n; i++) {
+        answer += i % 2 === 0 ? stringArr[0] : stringArr[1];
+    }
+    return answer;
+}
+console.log(solution(3));
+console.log(solution(4));
