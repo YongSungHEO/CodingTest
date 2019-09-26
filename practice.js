@@ -343,3 +343,9 @@ function solution(arr) {
 }
 console.log(solution([4,3,2,1]));
 console.log(solution([10]));
+
+
+// 짝수와 홀수
+function solution(num) {
+    return num % 2 === 0 ? 'Even' : 'Odd';
+}
