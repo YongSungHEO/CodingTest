@@ -329,3 +329,17 @@ function solution(n) {
 }
 console.log(solution(121));
 console.log(solution(3));
+
+
+// 제일 작은 수 제거하기
+function solution(arr) {
+    var answer = [];
+    if (arr.length === 1) {
+        return [-1];
+    }
+    arr.splice(arr.indexOf(Math.min(...arr)), 1);
+    answer = arr;
+    return answer;
+}
+console.log(solution([4,3,2,1]));
+console.log(solution([10]));
