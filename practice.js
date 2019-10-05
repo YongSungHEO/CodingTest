@@ -261,7 +261,7 @@ console.log(solution('z', 1));
 console.log(solution('a B z', 4));
 
 
-// 약수의 합
+// 약수의 합(Level1)
 function solution(n) {
     var answer = 0;
 
@@ -276,7 +276,7 @@ console.log(solution(12));
 console.log(solution(5));
 
 
-// 이상한 문자 만들기
+// 이상한 문자 만들기(Level1)
 function solution(s) {
     var answer = '';
     let index = 0;
@@ -295,7 +295,7 @@ function solution(s) {
 console.log(solution('try hello world'));
 
 
-// 자릿수 더하기
+// 자릿수 더하기(Level1)
 function solution(n) {
     var answer = 0;
     let str = n.toString();
@@ -309,21 +309,21 @@ console.log(solution(123));
 console.log(solution(987));
 
 
-// 자연수 뒤집어 배열로 만들기
+// 자연수 뒤집어 배열로 만들기(Level1)
 function solution(n) {
     return (n + '').split('').reverse().map(item => parseInt(item, 10));
 }
 console.log(solution(12345));
 
 
-// 정수 내림차순으로 배치하기
+// 정수 내림차순으로 배치하기(Level1)
 function solution(n) {
     return parseInt((n + '').split('').sort((a, b) => b > a).join(''));
 }
 console.log(solution(118372));
 
 
-// 정수 제곱근 판별
+// 정수 제곱근 판별(Level1)
 function solution(n) {
     return Number.isInteger(Math.sqrt(n)) ? Math.pow(Math.sqrt(n) + 1, 2) : -1;
 }
@@ -331,7 +331,7 @@ console.log(solution(121));
 console.log(solution(3));
 
 
-// 제일 작은 수 제거하기
+// 제일 작은 수 제거하기(Level1)
 function solution(arr) {
     var answer = [];
     if (arr.length === 1) {
@@ -345,7 +345,25 @@ console.log(solution([4,3,2,1]));
 console.log(solution([10]));
 
 
-// 짝수와 홀수
+// 짝수와 홀수(Level1)
 function solution(num) {
     return num % 2 === 0 ? 'Even' : 'Odd';
 }
+
+
+// 최대공약수와 최소공배수(Level1)
+function solution(n, m) {
+    var answer = [];
+    let max = Math.max(n, m);
+    let min = Math.min(n, m);
+
+    for (let i=1; i<=min; i++) {
+        if (min % i === 0 && max % i === 0) {
+            answer[0] = i;
+            answer[1] = min * max / i;
+        }
+    }   
+    return answer;
+}
+console.log(solution(3, 12));
+console.log(solution(2, 5));
