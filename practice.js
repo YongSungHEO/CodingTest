@@ -398,3 +398,17 @@ function solution(arr) {
         return accumulator + currentValue;
     }) / arr.length;
 }
+
+
+// 하샤드 수(Level1)
+function solution(x) {
+    let arr = x.toString().split('');
+    let digitSum = arr.reduce((accumulator, currentValue) => {
+        return parseInt(accumulator, 10) + parseInt(currentValue, 10);
+    });
+    return x % digitSum === 0 ? true : false;
+}
+console.log(solution(10));
+console.log(solution(12));
+console.log(solution(11));
+console.log(solution(13));
