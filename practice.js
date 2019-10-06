@@ -390,3 +390,11 @@ function solution(num) {
 console.log(solution(6));
 console.log(solution(16));
 console.log(solution(626331));
+
+
+// 평균 구하기(Level1)
+function solution(arr) {
+    return arr.reduce((accumulator, currentValue) => {
+        return accumulator + currentValue;
+    }) / arr.length;
+}
