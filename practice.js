@@ -412,3 +412,17 @@ console.log(solution(10));
 console.log(solution(12));
 console.log(solution(11));
 console.log(solution(13));
+
+
+// 핸드폰 번호 가리기(Level1)
+function solution(phone_number) {
+    var answer = '';
+    let length = phone_number.length
+    for (let i=0; i<length - 4; i++) {
+        answer += '*';
+    }
+    answer += phone_number.substring(length - 4, length);
+    return answer;
+}
+console.log(solution('01033334444'));
+console.log(solution('027778888'));
