@@ -444,7 +444,7 @@ console.log(solution([[1,2],[2,3]], [[3,4],[5,6]]));
 console.log(solution([[1],[2]], [[3],[4]]));
 
 
-// x만큼 간격이 있는 n개의 숫자
+// x만큼 간격이 있는 n개의 숫자(Level1)
 function solution(x, n) {
     var answer = [];
     answer.push(x);
@@ -456,3 +456,19 @@ function solution(x, n) {
 console.log(solution(2, 5));
 console.log(solution(4, 3));
 console.log(solution(-4, 2));
+
+
+// 직사각형 별찍기(Level1)
+process.stdin.setEncoding('utf8');
+process.stdin.on('data', data => {
+    const n = data.split(" ");
+    const a = Number(n[0]), b = Number(n[1]);
+    let answer = '';
+    for (let i=0; i<b; i++) {
+        for (let j=0; j<a; j++) {
+            answer += '*';
+        }
+        answer += '\n';
+    }
+    console.log(answer);
+});
