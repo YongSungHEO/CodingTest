@@ -426,3 +426,19 @@ function solution(phone_number) {
 }
 console.log(solution('01033334444'));
 console.log(solution('027778888'));
+
+
+// 행렬의 덧셈(Level1)
+function solution(arr1, arr2) {
+    var answer = [[]];
+    for (let i=0; i<arr1.length; i++) {
+        let item = [];
+        for (let j=0; j<arr1[i].length; j++) {
+            item.push(arr1[i][j] + arr2[i][j]);
+        }
+        answer[i] = item;
+    }
+    return answer;
+}
+console.log(solution([[1,2],[2,3]], [[3,4],[5,6]]));
+console.log(solution([[1],[2]], [[3],[4]]));
