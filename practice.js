@@ -442,3 +442,17 @@ function solution(arr1, arr2) {
 }
 console.log(solution([[1,2],[2,3]], [[3,4],[5,6]]));
 console.log(solution([[1],[2]], [[3],[4]]));
+
+
+// x만큼 간격이 있는 n개의 숫자
+function solution(x, n) {
+    var answer = [];
+    answer.push(x);
+    for (let i=1; i<n; i++) {
+        answer.push(answer[i - 1] + x);
+    }
+    return answer;
+}
+console.log(solution(2, 5));
+console.log(solution(4, 3));
+console.log(solution(-4, 2));
